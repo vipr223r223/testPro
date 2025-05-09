@@ -1,1 +1,623 @@
-port: 7890
+<html><head></head>
+ <body>
+  mixed-port: 7890
+allow-lan: true
+bind-address: &#39;*&#39;
+mode: rule
+log-level: info
+external-controller: &#39;127.0.0.1:9090&#39;
+dns:
+    enable: true
+    ipv6: false
+    default-nameserver: [223.5.5.5, 119.29.29.29]
+    enhanced-mode: redir-host
+    fake-ip-range: 198.18.0.1/16
+    use-hosts: true
+    nameserver: [&#39;https://doh.pub/dns-query&#39;, &#39;https://dns.alidns.com/dns-query&#39;]
+    fallback: [&#39;https://doh.dns.sb/dns-query&#39;, &#39;https://dns.cloudflare.com/dns-query&#39;, &#39;https://dns.twnic.tw/dns-query&#39;, &#39;tls://8.8.4.4:853&#39;]
+    fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
+proxies:
+    - { name: &#39;日本1&#39;, type: trojan, server: jjkk.quickdeer.top, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: jjkk.quickdeer.top, skip-cert-verify: false }
+    - { name: &#39;日本2&#39;, type: trojan, server: wb.kaiqsz.com, port: 49921, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz1.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;日本3&#39;, type: trojan, server: want.quickdeer.top, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: want.quickdeer.top, skip-cert-verify: false }
+    - { name: &#39;日本4&#39;, type: trojan, server: jjxx.8866566.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: jjxx.8866566.xyz, skip-cert-verify: false }
+    - { name: &#39;日本5&#39;, type: trojan, server: rester.741236.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: rester.741236.xyz, skip-cert-verify: false }
+    - { name: &#39;日本6&#39;, type: trojan, server: 36.151.194.33, port: 23326, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-jp.csair.com, skip-cert-verify: true }
+    - { name: &#39;日本7&#39;, type: trojan, server: cshgz1.fuckcdn.top, port: 45939, password: 1d56193a-c1f0-47be-a2cd-cbf8f236cc69, udp: true, skip-cert-verify: true }
+    - { name: &#39;日本8&#39;, type: ss, server: jp.1.thap.xyz, port: 58146, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;日本9&#39;, type: ss, server: jp.3.thap.xyz, port: 58757, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;日本10&#39;, type: trojan, server: cshgz1.fuckcdn.top, port: 45939, password: 1d56193a-c1f0-47be-a2cd-cbf8f236cc69, udp: true, skip-cert-verify: true }
+    - { name: &#39;日本11&#39;, type: trojan, server: wb.kaiqsz.com, port: 28713, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz1.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;新加坡1&#39;, type: trojan, server: ticket.967890.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: ticket.967890.xyz, skip-cert-verify: false }
+    - { name: &#39;新加坡2&#39;, type: trojan, server: xixi.741236.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: xixi.741236.xyz, skip-cert-verify: false }
+    - { name: &#39;新加坡3&#39;, type: trojan, server: dexac.8866566.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: dexac.8866566.xyz, skip-cert-verify: false }
+    - { name: &#39;新加坡4&#39;, type: ss, server: sg.1.thap.xyz, port: 58166, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;新加坡5&#39;, type: trojan, server: wb.kaiqsz.com, port: 48291, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz1.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;新加坡6&#39;, type: ss, server: sg.3.thap.xyz, port: 58326, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;韩国1&#39;, type: trojan, server: eras.8866566.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: eras.8866566.xyz, skip-cert-verify: false }
+    - { name: &#39;韩国2&#39;, type: trojan, server: kcdn.8866566.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: kcdn.8866566.xyz, skip-cert-verify: false }
+    - { name: &#39;韩国3&#39;, type: trojan, server: kacha.8866566.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: kacha.8866566.xyz, skip-cert-verify: false }
+    - { name: &#39;韩国4&#39;, type: ss, server: nb.3.thap.xyz, port: 58884, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;韩国5&#39;, type: trojan, server: lm.kaiqsz.com, port: 39593, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;香港1&#39;, type: trojan, server: happy.967890.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: happy.967890.xyz, skip-cert-verify: false }
+    - { name: &#39;香港2&#39;, type: ss, server: hk.3.thap.xyz, port: 58691, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;香港3&#39;, type: trojan, server: cshgz1.fuckcdn.top, port: 11584, password: 1d56193a-c1f0-47be-a2cd-cbf8f236cc69, udp: true, skip-cert-verify: true }
+    - { name: &#39;香港4&#39;, type: trojan, server: hzhz1.sssyun.xyz, port: 22240, password: e9f22306-712d-4f73-9e15-ee9344be6f64, udp: true, sni: trhk1.6bnw.top, skip-cert-verify: true }
+    - { name: &#39;香港5&#39;, type: trojan, server: hzhz2.sssyun.xyz, port: 22241, password: e9f22306-712d-4f73-9e15-ee9344be6f64, udp: true, sni: trhk1.6bnw.top, skip-cert-verify: true }
+    - { name: &#39;香港6&#39;, type: ss, server: hk.1.thap.xyz, port: 58606, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;香港7&#39;, type: trojan, server: wb.kaiqsz.com, port: 12221, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;香港8&#39;, type: trojan, server: cshgz1.fuckcdn.top, port: 11584, password: 1d56193a-c1f0-47be-a2cd-cbf8f236cc69, udp: true, skip-cert-verify: true }
+    - { name: &#39;香港9&#39;, type: trojan, server: 36.151.194.33, port: 23327, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-hkt.csair.com, skip-cert-verify: true }
+    - { name: &#39;台湾1&#39;, type: ss, server: nb.2.thap.xyz, port: 58011, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;台湾2&#39;, type: trojan, server: cshgz1.fuckcdn.top, port: 44701, password: 1d56193a-c1f0-47be-a2cd-cbf8f236cc69, udp: true, skip-cert-verify: true }
+    - { name: &#39;台湾3&#39;, type: ss, server: nb.1.thap.xyz, port: 58047, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;台湾4&#39;, type: trojan, server: wb.kaiqsz.com, port: 42765, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz1.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;台湾5&#39;, type: trojan, server: 117.172.176.43, port: 23322, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-tw.csair.com, skip-cert-verify: true }
+    - { name: &#39;美国1&#39;, type: trojan, server: wawa.919991.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: wawa.919991.xyz, skip-cert-verify: false }
+    - { name: &#39;美国2&#39;, type: trojan, server: amer.goodcat.top, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: amer.goodcat.top, skip-cert-verify: false }
+    - { name: &#39;美国3&#39;, type: trojan, server: amera.741236.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: amera.741236.xyz, skip-cert-verify: false }
+    - { name: &#39;美国4&#39;, type: trojan, server: 36.151.194.33, port: 23321, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-us.csair.com, skip-cert-verify: true }
+    - { name: &#39;美国5&#39;, type: ss, server: us.3.thap.xyz, port: 58384, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;美国6&#39;, type: ss, server: cshgz1.fuckcdn.top, port: 40453, cipher: aes-128-gcm, password: 1d56193a-c1f0-47be-a2cd-cbf8f236cc69, udp: true }
+    - { name: &#39;美国7&#39;, type: trojan, server: wb.kaiqsz.com, port: 21489, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;美国8&#39;, type: trojan, server: 36.151.194.33, port: 23323, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-usgt.csair.com, skip-cert-verify: true }
+    - { name: &#39;美国9&#39;, type: ss, server: us.1.thap.xyz, port: 58352, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;英国1&#39;, type: trojan, server: uk.967890.xyz, port: 14096, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: uk.967890.xyz, skip-cert-verify: false }
+    - { name: &#39;英国2&#39;, type: trojan, server: lm.kaiqsz.com, port: 59358, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz11.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;英国3&#39;, type: trojan, server: 183.236.123.34, port: 23334, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-uk.csair.com, skip-cert-verify: true }
+    - { name: &#39;加拿大1&#39;, type: trojan, server: cana.8866588.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: cana.8866588.xyz, skip-cert-verify: false }
+    - { name: &#39;加拿大2&#39;, type: ss, server: us.3.thap.xyz, port: 58288, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;加拿大3&#39;, type: trojan, server: 36.151.194.33, port: 23337, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-catb.csair.com, skip-cert-verify: true }
+    - { name: &#39;马来西亚1&#39;, type: trojan, server: myfa.8866588.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: myfa.8866588.xyz, skip-cert-verify: false }
+    - { name: &#39;马来西亚2&#39;, type: trojan, server: lm.kaiqsz.com, port: 30383, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz14.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;马来西亚3&#39;, type: ss, server: nb.1.thap.xyz, port: 58114, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;菲律宾1&#39;, type: trojan, server: phs.quickdeer.top, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: phs.quickdeer.top, skip-cert-verify: false }
+    - { name: &#39;菲律宾2&#39;, type: trojan, server: lm.kaiqsz.com, port: 58947, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz15.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;菲律宾3&#39;, type: ss, server: nb.4.thap.xyz, port: 58949, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;巴西1&#39;, type: trojan, server: bra.741236.xyz, port: 443, password: b62ebe62-8200-76bf-f0c0-51a2e2918e33, udp: true, sni: bra.741236.xyz, skip-cert-verify: false }
+    - { name: &#39;巴西2&#39;, type: ss, server: nb5.thap.xyz, port: 58524, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;巴西3&#39;, type: trojan, server: lm.kaiqsz.com, port: 28499, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz10.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;波兰1&#39;, type: trojan, server: 183.236.123.34, port: 23336, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-pl.csair.com, skip-cert-verify: true }
+    - { name: &#39;俄罗斯1&#39;, type: ss, server: nb.1.thap.xyz, port: 58582, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;俄罗斯2&#39;, type: trojan, server: cshgz1.fuckcdn.top, port: 18963, password: 1d56193a-c1f0-47be-a2cd-cbf8f236cc69, udp: true, skip-cert-verify: true }
+    - { name: &#39;俄罗斯3&#39;, type: trojan, server: cshgz1.fuckcdn.top, port: 18963, password: 1d56193a-c1f0-47be-a2cd-cbf8f236cc69, udp: true, skip-cert-verify: true }
+    - { name: &#39;俄罗斯4&#39;, type: trojan, server: 183.236.123.34, port: 23330, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-ru.csair.com, skip-cert-verify: true }
+    - { name: &#39;法国1&#39;, type: trojan, server: 183.236.123.34, port: 23333, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-fr.csair.com, skip-cert-verify: true }
+    - { name: &#39;法国2&#39;, type: trojan, server: lm.kaiqsz.com, port: 52508, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz12.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;阿根廷1&#39;, type: ss, server: nb.2.thap.xyz, port: 58991, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;西班牙1&#39;, type: trojan, server: lm.kaiqsz.com, port: 34249, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz12.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;墨西哥1&#39;, type: ss, server: us.2.thap.xyz, port: 58820, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;荷兰1&#39;, type: trojan, server: lm.kaiqsz.com, port: 23852, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz13.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;越南1&#39;, type: trojan, server: lm.kaiqsz.com, port: 59009, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz14.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;越南2&#39;, type: ss, server: nb.2.thap.xyz, port: 58275, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;泰国1&#39;, type: trojan, server: 183.238.50.22, port: 23332, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-th.csair.com, skip-cert-verify: true }
+    - { name: &#39;泰国2&#39;, type: trojan, server: lm.kaiqsz.com, port: 43855, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz14.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;印尼1&#39;, type: trojan, server: 183.238.50.22, port: 23338, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-id.csair.com, skip-cert-verify: true }
+    - { name: &#39;印度1&#39;, type: ss, server: nb.4.thap.xyz, port: 58716, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;印度2&#39;, type: trojan, server: lm.kaiqsz.com, port: 33243, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz13.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;土耳其1&#39;, type: trojan, server: 183.236.123.34, port: 23331, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-tr.csair.com, skip-cert-verify: true }
+    - { name: &#39;德国1&#39;, type: trojan, server: 183.236.123.34, port: 23329, password: 9d3eae90-ea93-4719-ab1f-a03f99ee17c6, udp: true, sni: moe233-qwrx-de.csair.com, skip-cert-verify: true }
+    - { name: &#39;德国2&#39;, type: trojan, server: lm.kaiqsz.com, port: 21463, password: ae1ebfd3-572d-4328-a357-b1c370b32780, udp: true, sni: mmbiz12.redapricotcloud.com, skip-cert-verify: true }
+    - { name: &#39;德国3&#39;, type: ss, server: nb.1.thap.xyz, port: 58260, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+    - { name: &#39;澳洲1&#39;, type: ss, server: nb5.thap.xyz, port: 58559, cipher: chacha20-ietf-poly1305, password: 2a0fbbf7-9d01-4242-b1fb-b4dd80d18aa0, udp: true }
+proxy-groups:
+    - { name: MagicHut, type: select, proxies: [自动选择, 故障转移, 日本1,日本2,日本3,日本4,日本5,日本6,日本7,日本8,日本9,日本10,日本11,新加坡1,新加坡2,新加坡3,新加坡4,新加坡5,新加坡6,韩国1,韩国2,韩国3,韩国4,韩国5,香港1,香港2,香港3,香港4,香港5,香港6,香港7,香港8,香港9,台湾1,台湾2,台湾3,台湾4,台湾5,美国1,美国2,美国3,美国4,美国5,美国6,美国7,美国8,美国9,英国1,英国2,英国3,加拿大1,加拿大2,加拿大3,马来西亚1,马来西亚2,马来西亚3,菲律宾1,菲律宾2,菲律宾3,巴西1,巴西2,巴西3,波兰1,俄罗斯1,俄罗斯2,俄罗斯3,俄罗斯4,法国1,法国2,阿根廷1,西班牙1,墨西哥1,荷兰1,越南1,越南2,泰国1,泰国2,印尼1,印度1,印度2,土耳其1,德国1,德国2,德国3,澳洲1] }
+    - { name: 自动选择, type: url-test, proxies: [日本1,日本2,日本3,日本4,日本5,日本6,日本7,日本8,日本9,日本10,日本11,新加坡1,新加坡2,新加坡3,新加坡4,新加坡5,新加坡6,韩国1,韩国2,韩国3,韩国4,韩国5,香港1,香港2,香港3,香港4,香港5,香港6,香港7,香港8,香港9,台湾1,台湾2,台湾3,台湾4,台湾5,美国1,美国2,美国3,美国4,美国5,美国6,美国7,美国8,美国9,英国1,英国2,英国3,加拿大1,加拿大2,加拿大3,马来西亚1,马来西亚2,马来西亚3,菲律宾1,菲律宾2,菲律宾3,巴西1,巴西2,巴西3,波兰1,俄罗斯1,俄罗斯2,俄罗斯3,俄罗斯4,法国1,法国2,阿根廷1,西班牙1,墨西哥1,荷兰1,越南1,越南2,泰国1,泰国2,印尼1,印度1,印度2,土耳其1,德国1,德国2,德国3,澳洲1], url: &#39;http://www.gstatic.com/generate_204&#39;, interval: 86400 }
+    - { name: 故障转移, type: fallback, proxies: [日本1,日本2,日本3,日本4,日本5,日本6,日本7,日本8,日本9,日本10,日本11,新加坡1,新加坡2,新加坡3,新加坡4,新加坡5,新加坡6,韩国1,韩国2,韩国3,韩国4,韩国5,香港1,香港2,香港3,香港4,香港5,香港6,香港7,香港8,香港9,台湾1,台湾2,台湾3,台湾4,台湾5,美国1,美国2,美国3,美国4,美国5,美国6,美国7,美国8,美国9,英国1,英国2,英国3,加拿大1,加拿大2,加拿大3,马来西亚1,马来西亚2,马来西亚3,菲律宾1,菲律宾2,菲律宾3,巴西1,巴西2,巴西3,波兰1,俄罗斯1,俄罗斯2,俄罗斯3,俄罗斯4,法国1,法国2,阿根廷1,西班牙1,墨西哥1,荷兰1,越南1,越南2,泰国1,泰国2,印尼1,印度1,印度2,土耳其1,德国1,德国2,德国3,澳洲1], url: &#39;http://www.gstatic.com/generate_204&#39;, interval: 7200 }
+rules:
+    - &#39;DOMAIN-SUFFIX,services.googleapis.cn,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,xn--ngstr-lra8j.com,MagicHut&#39;
+    - &#39;DOMAIN,safebrowsing.urlsec.qq.com,DIRECT&#39;
+    - &#39;DOMAIN,safebrowsing.googleapis.com,DIRECT&#39;
+    - &#39;DOMAIN,developer.apple.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,digicert.com,MagicHut&#39;
+    - &#39;DOMAIN,ocsp.apple.com,MagicHut&#39;
+    - &#39;DOMAIN,ocsp.comodoca.com,MagicHut&#39;
+    - &#39;DOMAIN,ocsp.usertrust.com,MagicHut&#39;
+    - &#39;DOMAIN,ocsp.sectigo.com,MagicHut&#39;
+    - &#39;DOMAIN,ocsp.verisign.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,apple-dns.net,MagicHut&#39;
+    - &#39;DOMAIN,testflight.apple.com,MagicHut&#39;
+    - &#39;DOMAIN,sandbox.itunes.apple.com,MagicHut&#39;
+    - &#39;DOMAIN,itunes.apple.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,apps.apple.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,blobstore.apple.com,MagicHut&#39;
+    - &#39;DOMAIN,cvws.icloud-content.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,mzstatic.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,itunes.apple.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,icloud.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,icloud-content.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,me.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,aaplimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,cdn20.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,cdn-apple.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,akadns.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,akamaiedge.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,edgekey.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,mwcloudcdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,mwcname.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,apple.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,apple-mapkit.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,126.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,126.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,127.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,163.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,360buyimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,36kr.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,acfun.tv,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,air-matters.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,aixifan.com,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,alicdn,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,alipay,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,taobao,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,amap.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,autonavi.com,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,baidu,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,bdimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,bdstatic.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,bilibili.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,bilivideo.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,caiyunapp.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,clouddn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,cnbeta.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,cnbetacdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,cootekservice.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,csdn.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ctrip.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,dgtle.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,dianping.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,douban.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,doubanio.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,duokan.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,easou.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ele.me,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,feng.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,fir.im,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,frdic.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,g-cores.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,godic.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,gtimg.com,DIRECT&#39;
+    - &#39;DOMAIN,cdn.hockeyapp.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,hongxiu.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,hxcdn.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,iciba.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ifeng.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ifengimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ipip.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,iqiyi.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,jd.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,jianshu.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,knewone.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,le.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,lecloud.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,lemicp.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,licdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,luoo.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,meituan.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,meituan.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,mi.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,miaopai.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,microsoft.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,microsoftonline.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,miui.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,miwifi.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,mob.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,netease.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,office.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,office365.com,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,officecdn,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,oschina.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ppsimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,pstatp.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qcloud.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qdaily.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qdmm.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qhimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qhres.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qidian.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qihucdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qiniu.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qiniucdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qiyipic.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qq.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qqurl.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,rarbg.to,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ruguoapp.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,segmentfault.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,sinaapp.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,smzdm.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,snapdrop.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,sogou.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,sogoucdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,sohu.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,soku.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,speedtest.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,sspai.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,suning.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,taobao.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,tencent.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,tenpay.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,tianyancha.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,tmall.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,tudou.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,umetrip.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,upaiyun.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,upyun.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,veryzhun.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,weather.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,weibo.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,xiami.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,xiami.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,xiaomicp.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ximalaya.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,xmcdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,xunlei.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,yhd.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,yihaodianimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,yinxiang.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ykimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,youdao.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,youku.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,zealer.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,zhihu.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,zhimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,zimuzu.tv,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,zoho.com,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,amazon,MagicHut&#39;
+    - &#39;DOMAIN-KEYWORD,google,MagicHut&#39;
+    - &#39;DOMAIN-KEYWORD,gmail,MagicHut&#39;
+    - &#39;DOMAIN-KEYWORD,youtube,MagicHut&#39;
+    - &#39;DOMAIN-KEYWORD,facebook,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,fb.me,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,fbcdn.net,MagicHut&#39;
+    - &#39;DOMAIN-KEYWORD,twitter,MagicHut&#39;
+    - &#39;DOMAIN-KEYWORD,instagram,MagicHut&#39;
+    - &#39;DOMAIN-KEYWORD,dropbox,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,twimg.com,MagicHut&#39;
+    - &#39;DOMAIN-KEYWORD,blogspot,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,youtu.be,MagicHut&#39;
+    - &#39;DOMAIN-KEYWORD,whatsapp,MagicHut&#39;
+    - &#39;DOMAIN-KEYWORD,admarvel,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,admaster,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,adsage,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,adsmogo,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,adsrvmedia,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,adwords,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,adservice,REJECT&#39;
+    - &#39;DOMAIN-SUFFIX,appsflyer.com,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,domob,REJECT&#39;
+    - &#39;DOMAIN-SUFFIX,doubleclick.net,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,duomeng,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,dwtrack,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,guanggao,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,lianmeng,REJECT&#39;
+    - &#39;DOMAIN-SUFFIX,mmstat.com,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,mopub,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,omgmta,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,openx,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,partnerad,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,pingfore,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,supersonicads,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,uedas,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,umeng,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,usage,REJECT&#39;
+    - &#39;DOMAIN-SUFFIX,vungle.com,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,wlmonitor,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,zjtoolbar,REJECT&#39;
+    - &#39;DOMAIN-SUFFIX,9to5mac.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,abpchina.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,adblockplus.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,adobe.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,akamaized.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,alfredapp.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,amplitude.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ampproject.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,android.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,angularjs.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,aolcdn.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,apkpure.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,appledaily.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,appshopper.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,appspot.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,arcgis.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,archive.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,armorgames.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,aspnetcdn.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,att.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,awsstatic.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,azureedge.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,azurewebsites.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,bing.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,bintray.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,bit.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,bit.ly,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,bitbucket.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,bjango.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,bkrtx.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,blog.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,blogcdn.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,blogger.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,blogsmithmedia.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,blogspot.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,blogspot.hk,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,bloomberg.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,box.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,box.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,cachefly.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,chromium.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,cl.ly,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,cloudflare.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,cloudfront.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,cloudmagic.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,cmail19.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,cnet.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,cocoapods.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,comodoca.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,crashlytics.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,culturedcode.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,d.pr,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,danilo.to,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,dayone.me,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,db.tt,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,deskconnect.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,disq.us,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,disqus.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,disquscdn.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,dnsimple.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,docker.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,dribbble.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,droplr.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,duckduckgo.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,dueapp.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,dytt8.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,edgecastcdn.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,edgekey.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,edgesuite.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,engadget.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,entrust.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,eurekavpt.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,evernote.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,fabric.io,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,fast.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,fastly.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,fc2.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,feedburner.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,feedly.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,feedsportal.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,fiftythree.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,firebaseio.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,flexibits.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,flickr.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,flipboard.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,g.co,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,gabia.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,geni.us,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,gfx.ms,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ggpht.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ghostnoteapp.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,git.io,MagicHut&#39;
+    - &#39;DOMAIN-KEYWORD,github,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,globalsign.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,gmodules.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,godaddy.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,golang.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,gongm.in,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,goo.gl,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,goodreaders.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,goodreads.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,gravatar.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,gstatic.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,gvt0.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,hockeyapp.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,hotmail.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,icons8.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ifixit.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ift.tt,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ifttt.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,iherb.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,imageshack.us,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,img.ly,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,imgur.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,imore.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,instapaper.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ipn.li,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,is.gd,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,issuu.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,itgonglun.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,itun.es,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ixquick.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,j.mp,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,js.revsci.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,jshint.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,jtvnw.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,justgetflux.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,kat.cr,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,klip.me,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,libsyn.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,linkedin.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,line-apps.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,linode.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,lithium.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,littlehj.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,live.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,live.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,livefilestore.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,llnwd.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,macid.co,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,macromedia.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,macrumors.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,mashable.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,mathjax.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,medium.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,mega.co.nz,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,mega.nz,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,megaupload.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,microsofttranslator.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,mindnode.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,mobile01.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,modmyi.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,msedge.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,myfontastic.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,name.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,nextmedia.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,nsstatic.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,nssurge.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,nyt.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,nytimes.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,omnigroup.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,onedrive.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,onenote.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ooyala.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,openvpn.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,openwrt.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,orkut.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,osxdaily.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,outlook.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ow.ly,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,paddleapi.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,parallels.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,parse.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,pdfexpert.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,periscope.tv,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,pinboard.in,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,pinterest.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,pixelmator.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,pixiv.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,playpcesor.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,playstation.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,playstation.com.hk,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,playstation.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,playstationnetwork.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,pushwoosh.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,rime.im,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,servebom.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,sfx.ms,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,shadowsocks.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,sharethis.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,shazam.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,skype.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,smartdnsMagicHut.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,smartmailcloud.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,sndcdn.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,sony.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,soundcloud.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,sourceforge.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,spotify.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,squarespace.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,sstatic.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,st.luluku.pw,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,stackoverflow.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,startpage.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,staticflickr.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,steamcommunity.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,symauth.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,symcb.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,symcd.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,tapbots.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,tapbots.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,tdesktop.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,techcrunch.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,techsmith.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,thepiratebay.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,theverge.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,time.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,timeinc.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,tiny.cc,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,tinypic.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,tmblr.co,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,todoist.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,trello.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,trustasiassl.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,tumblr.co,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,tumblr.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,tweetdeck.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,tweetmarker.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,twitch.tv,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,txmblr.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,typekit.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ubertags.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ublock.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ubnt.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ulyssesapp.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,urchin.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,usertrust.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,v.gd,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,v2ex.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,vimeo.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,vimeocdn.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,vine.co,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,vivaldi.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,vox-cdn.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,vsco.co,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,vultr.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,w.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,w3schools.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,webtype.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,wikiwand.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,wikileaks.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,wikimedia.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,wikipedia.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,wikipedia.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,windows.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,windows.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,wire.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,wordpress.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,workflowy.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,wp.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,wsj.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,wsj.net,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,xda-developers.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,xeeno.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,xiti.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,yahoo.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,yimg.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ying.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,yoyo.org,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,ytimg.com,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,telegra.ph,MagicHut&#39;
+    - &#39;DOMAIN-SUFFIX,telegram.org,MagicHut&#39;
+    - &#39;IP-CIDR,91.108.4.0/22,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,91.108.8.0/21,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,91.108.16.0/22,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,91.108.56.0/22,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,149.154.160.0/20,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR6,2001:67c:4e8::/48,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR6,2001:b28:f23d::/48,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR6,2001:b28:f23f::/48,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,120.232.181.162/32,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,120.241.147.226/32,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,120.253.253.226/32,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,120.253.255.162/32,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,120.253.255.34/32,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,120.253.255.98/32,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,180.163.150.162/32,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,180.163.150.34/32,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,180.163.151.162/32,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,180.163.151.34/32,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,203.208.39.0/24,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,203.208.40.0/24,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,203.208.41.0/24,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,203.208.43.0/24,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,203.208.50.0/24,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,220.181.174.162/32,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,220.181.174.226/32,MagicHut,no-resolve&#39;
+    - &#39;IP-CIDR,220.181.174.34/32,MagicHut,no-resolve&#39;
+    - &#39;DOMAIN,injections.adguard.org,DIRECT&#39;
+    - &#39;DOMAIN,local.adguard.org,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,local,DIRECT&#39;
+    - &#39;IP-CIDR,127.0.0.0/8,DIRECT&#39;
+    - &#39;IP-CIDR,172.16.0.0/12,DIRECT&#39;
+    - &#39;IP-CIDR,192.168.0.0/16,DIRECT&#39;
+    - &#39;IP-CIDR,10.0.0.0/8,DIRECT&#39;
+    - &#39;IP-CIDR,17.0.0.0/8,DIRECT&#39;
+    - &#39;IP-CIDR,100.64.0.0/10,DIRECT&#39;
+    - &#39;IP-CIDR,224.0.0.0/4,DIRECT&#39;
+    - &#39;IP-CIDR6,fe80::/10,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,cn,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,-cn,DIRECT&#39;
+    - &#39;GEOIP,CN,DIRECT&#39;
+    - &#39;MATCH,MagicHut&#39;
+ 
+
+</body></html>
