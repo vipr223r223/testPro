@@ -1,10 +1,4 @@
 mixed-port: 7890
-allow-lan: false
-mode: Rule
-ipv6: true
-log-level: error
-external-controller: 0.0.0.0:9091
-secret: &#34;123456&#34;
 proxies:
 - name: HK01 - 香港九龙 - Vless
   type: vless
