@@ -1,0 +1,616 @@
+mixed-port: 7890
+allow-lan: true
+bind-address: &#39;*&#39;
+mode: rule
+log-level: info
+external-controller: &#39;127.0.0.1:9090&#39;
+dns:
+    enable: true
+    ipv6: false
+    default-nameserver: [223.5.5.5, 119.29.29.29]
+    enhanced-mode: redir-host
+    fake-ip-range: 198.18.0.1/16
+    use-hosts: true
+    nameserver: [&#39;https://doh.pub/dns-query&#39;, &#39;https://dns.alidns.com/dns-query&#39;]
+    fallback: [&#39;https://doh.dns.sb/dns-query&#39;, &#39;https://dns.cloudflare.com/dns-query&#39;, &#39;https://dns.twnic.tw/dns-query&#39;, &#39;tls://8.8.4.4:853&#39;]
+    fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
+proxies:
+    - { name: &#39;日本1&#39;, type: trojan, server: who.goodcat.top, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;日本2&#39;, type: trojan, server: jvc.741236.xyz, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;日本3&#39;, type: trojan, server: jpcdn.quickdeer.top, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;日本4&#39;, type: trojan, server: jeams.8866988.xyz, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;日本5&#39;, type: trojan, server: jane.919991.xyz, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;日本6&#39;, type: trojan, server: 183.236.123.34, port: 23326, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;日本7&#39;, type: trojan, server: cn2.cdn.xfltd-cdn.top, port: 12031, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;日本8&#39;, type: trojan, server: wb.kaiqsz.com, port: 49921, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;新加坡1&#39;, type: trojan, server: roller.967890.xyz, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;新加坡2&#39;, type: trojan, server: peak.8866988.xyz, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;新加坡3&#39;, type: trojan, server: smood.goodcat.top, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;新加坡4&#39;, type: trojan, server: cn2.cdn.xfltd-cdn.top, port: 12021, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;新加坡5&#39;, type: trojan, server: 183.238.50.22, port: 23320, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;新加坡6&#39;, type: trojan, server: wb.kaiqsz.com, port: 48291, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;韩国1&#39;, type: trojan, server: onlyone.8866988.xyz, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;韩国2&#39;, type: trojan, server: kindom.967890.xyz, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;韩国3&#39;, type: trojan, server: king.goodcat.top, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;韩国4&#39;, type: trojan, server: cn2.cdn.xfltd-cdn.top, port: 12041, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;韩国5&#39;, type: trojan, server: lm.kaiqsz.com, port: 39593, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;香港1&#39;, type: trojan, server: hk.goodcat.top, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;香港2&#39;, type: trojan, server: kings.8866588.xyz, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;香港3&#39;, type: trojan, server: cn1.cdn.xfltd-cdn.top, port: 12001, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;香港4&#39;, type: trojan, server: cshgz1.fuckcdn.top, port: 10506, password: b62701e4-d1f8-4f08-b453-9d565899e6ce, udp: true, skip-cert-verify: 1 }
+    - { name: &#39;香港5&#39;, type: trojan, server: hzhz1.sssyun.xyz, port: 22240, password: 0385e2a3-ae90-49c7-b14b-04b769841678, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;香港6&#39;, type: trojan, server: cshgz1.fuckcdn.top, port: 10506, password: b62701e4-d1f8-4f08-b453-9d565899e6ce, udp: true, skip-cert-verify: 1 }
+    - { name: &#39;香港7&#39;, type: trojan, server: 112.18.120.183, port: 23328, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;香港8&#39;, type: trojan, server: wb.kaiqsz.com, port: 12221, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;香港9&#39;, type: trojan, server: hzhz2.sssyun.xyz, port: 22241, password: 0385e2a3-ae90-49c7-b14b-04b769841678, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;香港10&#39;, type: trojan, server: 112.18.120.183, port: 23327, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;台湾1&#39;, type: trojan, server: 183.236.123.34, port: 23322, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;台湾2&#39;, type: trojan, server: cn1.cdn.xfltd-cdn.top, port: 12011, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;台湾3&#39;, type: trojan, server: wb.kaiqsz.com, port: 42765, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;美国1&#39;, type: trojan, server: kcce.741236.xyz, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;美国2&#39;, type: trojan, server: wahaha.8866588.xyz, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;美国3&#39;, type: trojan, server: 112.18.120.183, port: 23323, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;美国4&#39;, type: vmess, server: mugen11.6bnw.top, port: &#39;8080&#39;, uuid: 0385e2a3-ae90-49c7-b14b-04b769841678, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: &#39;/?ed=2560&#39; }, ws-path: &#39;/?ed=2560&#39;}
+    - { name: &#39;美国5&#39;, type: ss, server: cshgz1.fuckcdn.top, port: 40453, cipher: aes-128-gcm, password: b62701e4-d1f8-4f08-b453-9d565899e6ce, udp: true }
+    - { name: &#39;美国6&#39;, type: trojan, server: 112.18.120.183, port: 23321, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;美国7&#39;, type: trojan, server: cn2.cdn.xfltd-cdn.top, port: 12051, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;美国8&#39;, type: trojan, server: wb.kaiqsz.com, port: 21489, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;加拿大1&#39;, type: trojan, server: cans.quickdeer.top, port: 443, password: 5e3ef01c-fe2d-cc9e-ddf4-146cec622f64, udp: true, sni: 1 }
+    - { name: &#39;加拿大2&#39;, type: trojan, server: lm.kaiqsz.com, port: 50121, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;加拿大3&#39;, type: trojan, server: 112.18.120.183, port: 23337, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;俄罗斯1&#39;, type: trojan, server: 183.238.50.22, port: 23330, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;俄罗斯2&#39;, type: trojan, server: cn2.cdn.xfltd-cdn.top, port: 12075, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;俄罗斯3&#39;, type: trojan, server: cshgz1.fuckcdn.top, port: 18963, password: b62701e4-d1f8-4f08-b453-9d565899e6ce, udp: true, skip-cert-verify: 1 }
+    - { name: &#39;俄罗斯4&#39;, type: trojan, server: cshgz1.fuckcdn.top, port: 18963, password: b62701e4-d1f8-4f08-b453-9d565899e6ce, udp: true, skip-cert-verify: 1 }
+    - { name: &#39;俄罗斯5&#39;, type: trojan, server: 183.238.50.22, port: 23330, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;俄罗斯6&#39;, type: trojan, server: lm.kaiqsz.com, port: 16783, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;俄罗斯7&#39;, type: trojan, server: cshgz1.fuckcdn.top, port: 18963, password: b62701e4-d1f8-4f08-b453-9d565899e6ce, udp: true, skip-cert-verify: 1 }
+    - { name: &#39;土耳其1&#39;, type: trojan, server: cn2.cdn.xfltd-cdn.top, port: 12064, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;土耳其2&#39;, type: trojan, server: 183.238.50.22, port: 23331, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;土耳其3&#39;, type: trojan, server: 183.238.50.22, port: 23331, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;德国1&#39;, type: trojan, server: lm.kaiqsz.com, port: 21463, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;德国2&#39;, type: trojan, server: cn2.cdn.xfltd-cdn.top, port: 12070, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;德国3&#39;, type: trojan, server: 183.238.50.22, port: 23329, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;英国1&#39;, type: trojan, server: 183.238.50.22, port: 23334, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;英国2&#39;, type: trojan, server: 183.238.50.22, port: 23334, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;英国3&#39;, type: trojan, server: cn2.cdn.xfltd-cdn.top, port: 12069, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;英国4&#39;, type: trojan, server: lm.kaiqsz.com, port: 59358, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;南非1&#39;, type: trojan, server: lm.kaiqsz.com, port: 53759, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;泰国1&#39;, type: trojan, server: lm.kaiqsz.com, port: 43855, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;泰国2&#39;, type: trojan, server: 183.238.50.22, port: 23332, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;泰国3&#39;, type: trojan, server: cn2.cdn.xfltd-cdn.top, port: 12076, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;西班牙1&#39;, type: trojan, server: lm.kaiqsz.com, port: 34249, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;波兰1&#39;, type: trojan, server: 183.238.50.22, port: 23336, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;巴西1&#39;, type: trojan, server: lm.kaiqsz.com, port: 28499, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;法国1&#39;, type: trojan, server: cn2.cdn.xfltd-cdn.top, port: 12065, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;法国2&#39;, type: trojan, server: lm.kaiqsz.com, port: 52508, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;法国3&#39;, type: trojan, server: 183.238.50.22, port: 23333, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;法国4&#39;, type: trojan, server: 183.238.50.22, port: 23333, password: 5bf968e5-4e81-453a-acb5-e7ba415ace4c, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;马来西亚1&#39;, type: trojan, server: lm.kaiqsz.com, port: 30383, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;马来西亚2&#39;, type: trojan, server: cn2.cdn.xfltd-cdn.top, port: 12067, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;印度1&#39;, type: trojan, server: lm.kaiqsz.com, port: 27056, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;印度2&#39;, type: trojan, server: cn2.cdn.xfltd-cdn.top, port: 12072, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;墨西哥1&#39;, type: trojan, server: lm.kaiqsz.com, port: 14571, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;越南1&#39;, type: trojan, server: lm.kaiqsz.com, port: 59009, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;沙特1&#39;, type: trojan, server: lm.kaiqsz.com, port: 56072, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;菲律宾1&#39;, type: trojan, server: lm.kaiqsz.com, port: 58947, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;荷兰1&#39;, type: trojan, server: lm.kaiqsz.com, port: 23852, password: 2cc9c173-9d4b-467d-8f04-58eddea9f8b8, udp: true, sni: , skip-cert-verify: 1 }
+    - { name: &#39;意大利1&#39;, type: trojan, server: cn2.cdn.xfltd-cdn.top, port: 12062, password: 419a84ad-0cf6-4155-8e1c-d19a877010c9, udp: true, sni: , skip-cert-verify: 1 }
+proxy-groups:
+    - { name: StarSky, type: select, proxies: [自动选择, 故障转移, 日本1,日本2,日本3,日本4,日本5,日本6,日本7,日本8,新加坡1,新加坡2,新加坡3,新加坡4,新加坡5,新加坡6,韩国1,韩国2,韩国3,韩国4,韩国5,香港1,香港2,香港3,香港4,香港5,香港6,香港7,香港8,香港9,香港10,台湾1,台湾2,台湾3,美国1,美国2,美国3,美国4,美国5,美国6,美国7,美国8,加拿大1,加拿大2,加拿大3,俄罗斯1,俄罗斯2,俄罗斯3,俄罗斯4,俄罗斯5,俄罗斯6,俄罗斯7,土耳其1,土耳其2,土耳其3,德国1,德国2,德国3,英国1,英国2,英国3,英国4,南非1,泰国1,泰国2,泰国3,西班牙1,波兰1,巴西1,法国1,法国2,法国3,法国4,马来西亚1,马来西亚2,印度1,印度2,墨西哥1,越南1,沙特1,菲律宾1,荷兰1,意大利1] }
+    - { name: 自动选择, type: url-test, proxies: [日本1,日本2,日本3,日本4,日本5,日本6,日本7,日本8,新加坡1,新加坡2,新加坡3,新加坡4,新加坡5,新加坡6,韩国1,韩国2,韩国3,韩国4,韩国5,香港1,香港2,香港3,香港4,香港5,香港6,香港7,香港8,香港9,香港10,台湾1,台湾2,台湾3,美国1,美国2,美国3,美国4,美国5,美国6,美国7,美国8,加拿大1,加拿大2,加拿大3,俄罗斯1,俄罗斯2,俄罗斯3,俄罗斯4,俄罗斯5,俄罗斯6,俄罗斯7,土耳其1,土耳其2,土耳其3,德国1,德国2,德国3,英国1,英国2,英国3,英国4,南非1,泰国1,泰国2,泰国3,西班牙1,波兰1,巴西1,法国1,法国2,法国3,法国4,马来西亚1,马来西亚2,印度1,印度2,墨西哥1,越南1,沙特1,菲律宾1,荷兰1,意大利1], url: &#39;http://www.gstatic.com/generate_204&#39;, interval: 86400 }
+    - { name: 故障转移, type: fallback, proxies: [日本1,日本2,日本3,日本4,日本5,日本6,日本7,日本8,新加坡1,新加坡2,新加坡3,新加坡4,新加坡5,新加坡6,韩国1,韩国2,韩国3,韩国4,韩国5,香港1,香港2,香港3,香港4,香港5,香港6,香港7,香港8,香港9,香港10,台湾1,台湾2,台湾3,美国1,美国2,美国3,美国4,美国5,美国6,美国7,美国8,加拿大1,加拿大2,加拿大3,俄罗斯1,俄罗斯2,俄罗斯3,俄罗斯4,俄罗斯5,俄罗斯6,俄罗斯7,土耳其1,土耳其2,土耳其3,德国1,德国2,德国3,英国1,英国2,英国3,英国4,南非1,泰国1,泰国2,泰国3,西班牙1,波兰1,巴西1,法国1,法国2,法国3,法国4,马来西亚1,马来西亚2,印度1,印度2,墨西哥1,越南1,沙特1,菲律宾1,荷兰1,意大利1], url: &#39;http://www.gstatic.com/generate_204&#39;, interval: 7200 }
+rules:
+    - &#39;DOMAIN-SUFFIX,services.googleapis.cn,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,xn--ngstr-lra8j.com,StarSky&#39;
+    - &#39;DOMAIN,safebrowsing.urlsec.qq.com,DIRECT&#39;
+    - &#39;DOMAIN,safebrowsing.googleapis.com,DIRECT&#39;
+    - &#39;DOMAIN,developer.apple.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,digicert.com,StarSky&#39;
+    - &#39;DOMAIN,ocsp.apple.com,StarSky&#39;
+    - &#39;DOMAIN,ocsp.comodoca.com,StarSky&#39;
+    - &#39;DOMAIN,ocsp.usertrust.com,StarSky&#39;
+    - &#39;DOMAIN,ocsp.sectigo.com,StarSky&#39;
+    - &#39;DOMAIN,ocsp.verisign.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,apple-dns.net,StarSky&#39;
+    - &#39;DOMAIN,testflight.apple.com,StarSky&#39;
+    - &#39;DOMAIN,sandbox.itunes.apple.com,StarSky&#39;
+    - &#39;DOMAIN,itunes.apple.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,apps.apple.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,blobstore.apple.com,StarSky&#39;
+    - &#39;DOMAIN,cvws.icloud-content.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,mzstatic.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,itunes.apple.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,icloud.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,icloud-content.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,me.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,aaplimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,cdn20.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,cdn-apple.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,akadns.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,akamaiedge.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,edgekey.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,mwcloudcdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,mwcname.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,apple.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,apple-mapkit.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,126.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,126.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,127.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,163.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,360buyimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,36kr.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,acfun.tv,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,air-matters.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,aixifan.com,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,alicdn,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,alipay,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,taobao,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,amap.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,autonavi.com,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,baidu,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,bdimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,bdstatic.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,bilibili.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,bilivideo.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,caiyunapp.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,clouddn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,cnbeta.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,cnbetacdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,cootekservice.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,csdn.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ctrip.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,dgtle.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,dianping.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,douban.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,doubanio.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,duokan.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,easou.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ele.me,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,feng.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,fir.im,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,frdic.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,g-cores.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,godic.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,gtimg.com,DIRECT&#39;
+    - &#39;DOMAIN,cdn.hockeyapp.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,hongxiu.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,hxcdn.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,iciba.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ifeng.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ifengimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ipip.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,iqiyi.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,jd.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,jianshu.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,knewone.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,le.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,lecloud.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,lemicp.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,licdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,luoo.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,meituan.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,meituan.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,mi.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,miaopai.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,microsoft.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,microsoftonline.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,miui.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,miwifi.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,mob.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,netease.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,office.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,office365.com,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,officecdn,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,oschina.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ppsimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,pstatp.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qcloud.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qdaily.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qdmm.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qhimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qhres.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qidian.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qihucdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qiniu.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qiniucdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qiyipic.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qq.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,qqurl.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,rarbg.to,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ruguoapp.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,segmentfault.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,sinaapp.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,smzdm.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,snapdrop.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,sogou.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,sogoucdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,sohu.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,soku.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,speedtest.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,sspai.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,suning.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,taobao.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,tencent.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,tenpay.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,tianyancha.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,tmall.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,tudou.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,umetrip.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,upaiyun.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,upyun.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,veryzhun.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,weather.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,weibo.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,xiami.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,xiami.net,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,xiaomicp.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ximalaya.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,xmcdn.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,xunlei.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,yhd.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,yihaodianimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,yinxiang.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,ykimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,youdao.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,youku.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,zealer.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,zhihu.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,zhimg.com,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,zimuzu.tv,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,zoho.com,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,amazon,StarSky&#39;
+    - &#39;DOMAIN-KEYWORD,google,StarSky&#39;
+    - &#39;DOMAIN-KEYWORD,gmail,StarSky&#39;
+    - &#39;DOMAIN-KEYWORD,youtube,StarSky&#39;
+    - &#39;DOMAIN-KEYWORD,facebook,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,fb.me,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,fbcdn.net,StarSky&#39;
+    - &#39;DOMAIN-KEYWORD,twitter,StarSky&#39;
+    - &#39;DOMAIN-KEYWORD,instagram,StarSky&#39;
+    - &#39;DOMAIN-KEYWORD,dropbox,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,twimg.com,StarSky&#39;
+    - &#39;DOMAIN-KEYWORD,blogspot,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,youtu.be,StarSky&#39;
+    - &#39;DOMAIN-KEYWORD,whatsapp,StarSky&#39;
+    - &#39;DOMAIN-KEYWORD,admarvel,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,admaster,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,adsage,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,adsmogo,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,adsrvmedia,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,adwords,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,adservice,REJECT&#39;
+    - &#39;DOMAIN-SUFFIX,appsflyer.com,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,domob,REJECT&#39;
+    - &#39;DOMAIN-SUFFIX,doubleclick.net,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,duomeng,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,dwtrack,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,guanggao,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,lianmeng,REJECT&#39;
+    - &#39;DOMAIN-SUFFIX,mmstat.com,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,mopub,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,omgmta,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,openx,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,partnerad,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,pingfore,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,supersonicads,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,uedas,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,umeng,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,usage,REJECT&#39;
+    - &#39;DOMAIN-SUFFIX,vungle.com,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,wlmonitor,REJECT&#39;
+    - &#39;DOMAIN-KEYWORD,zjtoolbar,REJECT&#39;
+    - &#39;DOMAIN-SUFFIX,9to5mac.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,abpchina.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,adblockplus.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,adobe.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,akamaized.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,alfredapp.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,amplitude.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ampproject.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,android.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,angularjs.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,aolcdn.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,apkpure.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,appledaily.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,appshopper.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,appspot.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,arcgis.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,archive.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,armorgames.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,aspnetcdn.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,att.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,awsstatic.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,azureedge.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,azurewebsites.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,bing.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,bintray.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,bit.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,bit.ly,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,bitbucket.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,bjango.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,bkrtx.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,blog.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,blogcdn.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,blogger.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,blogsmithmedia.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,blogspot.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,blogspot.hk,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,bloomberg.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,box.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,box.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,cachefly.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,chromium.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,cl.ly,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,cloudflare.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,cloudfront.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,cloudmagic.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,cmail19.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,cnet.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,cocoapods.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,comodoca.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,crashlytics.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,culturedcode.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,d.pr,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,danilo.to,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,dayone.me,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,db.tt,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,deskconnect.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,disq.us,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,disqus.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,disquscdn.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,dnsimple.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,docker.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,dribbble.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,droplr.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,duckduckgo.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,dueapp.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,dytt8.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,edgecastcdn.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,edgekey.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,edgesuite.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,engadget.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,entrust.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,eurekavpt.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,evernote.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,fabric.io,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,fast.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,fastly.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,fc2.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,feedburner.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,feedly.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,feedsportal.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,fiftythree.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,firebaseio.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,flexibits.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,flickr.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,flipboard.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,g.co,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,gabia.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,geni.us,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,gfx.ms,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ggpht.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ghostnoteapp.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,git.io,StarSky&#39;
+    - &#39;DOMAIN-KEYWORD,github,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,globalsign.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,gmodules.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,godaddy.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,golang.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,gongm.in,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,goo.gl,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,goodreaders.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,goodreads.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,gravatar.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,gstatic.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,gvt0.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,hockeyapp.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,hotmail.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,icons8.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ifixit.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ift.tt,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ifttt.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,iherb.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,imageshack.us,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,img.ly,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,imgur.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,imore.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,instapaper.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ipn.li,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,is.gd,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,issuu.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,itgonglun.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,itun.es,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ixquick.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,j.mp,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,js.revsci.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,jshint.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,jtvnw.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,justgetflux.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,kat.cr,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,klip.me,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,libsyn.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,linkedin.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,line-apps.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,linode.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,lithium.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,littlehj.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,live.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,live.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,livefilestore.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,llnwd.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,macid.co,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,macromedia.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,macrumors.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,mashable.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,mathjax.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,medium.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,mega.co.nz,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,mega.nz,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,megaupload.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,microsofttranslator.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,mindnode.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,mobile01.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,modmyi.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,msedge.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,myfontastic.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,name.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,nextmedia.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,nsstatic.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,nssurge.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,nyt.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,nytimes.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,omnigroup.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,onedrive.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,onenote.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ooyala.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,openvpn.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,openwrt.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,orkut.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,osxdaily.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,outlook.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ow.ly,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,paddleapi.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,parallels.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,parse.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,pdfexpert.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,periscope.tv,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,pinboard.in,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,pinterest.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,pixelmator.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,pixiv.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,playpcesor.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,playstation.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,playstation.com.hk,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,playstation.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,playstationnetwork.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,pushwoosh.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,rime.im,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,servebom.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,sfx.ms,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,shadowsocks.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,sharethis.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,shazam.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,skype.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,smartdnsStarSky.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,smartmailcloud.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,sndcdn.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,sony.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,soundcloud.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,sourceforge.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,spotify.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,squarespace.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,sstatic.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,st.luluku.pw,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,stackoverflow.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,startpage.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,staticflickr.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,steamcommunity.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,symauth.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,symcb.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,symcd.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,tapbots.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,tapbots.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,tdesktop.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,techcrunch.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,techsmith.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,thepiratebay.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,theverge.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,time.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,timeinc.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,tiny.cc,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,tinypic.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,tmblr.co,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,todoist.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,trello.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,trustasiassl.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,tumblr.co,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,tumblr.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,tweetdeck.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,tweetmarker.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,twitch.tv,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,txmblr.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,typekit.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ubertags.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ublock.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ubnt.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ulyssesapp.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,urchin.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,usertrust.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,v.gd,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,v2ex.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,vimeo.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,vimeocdn.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,vine.co,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,vivaldi.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,vox-cdn.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,vsco.co,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,vultr.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,w.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,w3schools.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,webtype.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,wikiwand.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,wikileaks.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,wikimedia.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,wikipedia.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,wikipedia.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,windows.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,windows.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,wire.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,wordpress.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,workflowy.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,wp.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,wsj.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,wsj.net,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,xda-developers.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,xeeno.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,xiti.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,yahoo.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,yimg.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ying.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,yoyo.org,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,ytimg.com,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,telegra.ph,StarSky&#39;
+    - &#39;DOMAIN-SUFFIX,telegram.org,StarSky&#39;
+    - &#39;IP-CIDR,91.108.4.0/22,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,91.108.8.0/21,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,91.108.16.0/22,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,91.108.56.0/22,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,149.154.160.0/20,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR6,2001:67c:4e8::/48,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR6,2001:b28:f23d::/48,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR6,2001:b28:f23f::/48,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,120.232.181.162/32,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,120.241.147.226/32,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,120.253.253.226/32,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,120.253.255.162/32,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,120.253.255.34/32,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,120.253.255.98/32,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,180.163.150.162/32,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,180.163.150.34/32,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,180.163.151.162/32,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,180.163.151.34/32,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,203.208.39.0/24,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,203.208.40.0/24,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,203.208.41.0/24,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,203.208.43.0/24,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,203.208.50.0/24,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,220.181.174.162/32,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,220.181.174.226/32,StarSky,no-resolve&#39;
+    - &#39;IP-CIDR,220.181.174.34/32,StarSky,no-resolve&#39;
+    - &#39;DOMAIN,injections.adguard.org,DIRECT&#39;
+    - &#39;DOMAIN,local.adguard.org,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,local,DIRECT&#39;
+    - &#39;IP-CIDR,127.0.0.0/8,DIRECT&#39;
+    - &#39;IP-CIDR,172.16.0.0/12,DIRECT&#39;
+    - &#39;IP-CIDR,192.168.0.0/16,DIRECT&#39;
+    - &#39;IP-CIDR,10.0.0.0/8,DIRECT&#39;
+    - &#39;IP-CIDR,17.0.0.0/8,DIRECT&#39;
+    - &#39;IP-CIDR,100.64.0.0/10,DIRECT&#39;
+    - &#39;IP-CIDR,224.0.0.0/4,DIRECT&#39;
+    - &#39;IP-CIDR6,fe80::/10,DIRECT&#39;
+    - &#39;DOMAIN-SUFFIX,cn,DIRECT&#39;
+    - &#39;DOMAIN-KEYWORD,-cn,DIRECT&#39;
+    - &#39;GEOIP,CN,DIRECT&#39;
+    - &#39;MATCH,StarSky&#39;
