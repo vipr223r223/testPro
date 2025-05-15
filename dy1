@@ -1,0 +1,1924 @@
+port: 7890
+socks-port: 7891
+allow-lan: false
+mode: rule
+log-level: info
+geodata-mode: true
+geo-auto-update: true
+geodata-loader: standard
+geo-update-interval: 24
+geox-url:
+  geoip: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat
+  geosite: &gt;-
+    https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
+  mmdb: &gt;-
+    https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
+  asn: &gt;-
+    https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb
+rule-providers:
+  geolocation-cn:
+    type: http
+    format: mrs
+    behavior: domain
+    url: &gt;-
+      https://gh.sageer.me/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/geolocation-cn.mrs
+    path: ./ruleset/geolocation-cn.mrs
+    interval: 86400
+  geolocation-!cn:
+    type: http
+    format: mrs
+    behavior: domain
+    url: &gt;-
+      https://gh.sageer.me/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/geolocation-!cn.mrs
+    path: ./ruleset/geolocation-!cn.mrs
+    interval: 86400
+  private:
+    type: http
+    format: mrs
+    behavior: ipcidr
+    url: &gt;-
+      https://gh.sageer.me/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/private.mrs
+    path: ./ruleset/private.mrs
+    interval: 86400
+  cn:
+    type: http
+    format: mrs
+    behavior: ipcidr
+    url: &gt;-
+      https://gh.sageer.me/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/cn.mrs
+    path: ./ruleset/cn.mrs
+    interval: 86400
+dns:
+  enable: true
+  ipv6: true
+  respect-rules: true
+  enhanced-mode: fake-ip
+  nameserver:
+    - https://120.53.53.53/dns-query
+    - https://223.5.5.5/dns-query
+  proxy-server-nameserver:
+    - https://120.53.53.53/dns-query
+    - https://223.5.5.5/dns-query
+  nameserver-policy:
+    geosite:cn,private:
+      - https://120.53.53.53/dns-query
+      - https://223.5.5.5/dns-query
+    geosite:geolocation-!cn:
+      - https://dns.cloudflare.com/dns-query
+      - https://dns.google/dns-query
+proxies:
+  - name: 剩余流量：97.2 GB
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2053
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.sgpara.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 距离下次重置剩余：21 天
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2053
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.sgpara.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 套餐到期：2025-06-04
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2053
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.sgpara.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 新加坡3-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2053
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.sgpara.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 新加坡4-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2053
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.sgparb.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 新加坡5-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.sgparc.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 新加坡6-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.sgpard.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 日本1-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2096
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.jpdaara.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 日本2-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.jpdaarb.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 日本3-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.jpdaarc.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 日本4-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2053
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.jpdaard.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 印度-海得拉巴1-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.insvara.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 印度-海得拉巴2-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2096
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.insvarb.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 印度-海得拉巴3-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2096
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.insvarc.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 印度-海得拉巴4-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 8443
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.insvard.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 沙特阿拉伯1-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2053
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.sasvara.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 沙特阿拉伯2-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.sasvarb.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 美国东部阿什本1-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.asbvara.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 美国东部阿什本2-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.asbvarb.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 美国西部圣何塞1-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.sjcvara.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 美国西部圣何塞2-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.sjcvarb.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 美国西部圣何塞3-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.sjcvarc.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 美国西部圣何塞4-CDN | 1x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 8443
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.sjcvard.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 美国西部洛杉矶1-CDN | 0x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.laxvara.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 美国西部洛杉矶2-CDN | 0x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.laxvasra.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 美国东部纽约1-CDN | 0x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.nycvara.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 美国中部芝加哥1-CDN | 0x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.caivara.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 美国南部达拉斯1-CDN | 0x
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.dlsvara.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 加拿大1-多伦多-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.cacuaa.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 德国1纽伦堡-CDN | 0X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.denlbaac.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 德国2纽伦堡-CDN | 0X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2096
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.nlbbacvb.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 土耳其1-无分流直出BAN-PT/BT/POOL-CDN | 0X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.traccksoqc.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 西班牙1-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.xbyaac.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 英国伦敦1-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.lhraaa.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 英国伦敦2-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2096
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.lhraab.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 英国伦敦3-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2096
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.lhraac.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 英国伦敦4-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2053
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.lhraad.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 英国伦敦5-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2053
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.lhraae.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 英国伦敦6-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2096
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.lhraaf.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 法国-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.frasaa.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 荷兰1-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.nlssaa.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 荷兰2-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2096
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.nlssab.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 俄罗斯1-CDN | 0X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.rsusab.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 巴西圣保罗1-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2096
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.baxsaa.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 巴西圣保罗2-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.baxsab.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 巴西圣保罗3-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.baxsac.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 巴西维涅社1-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.baxsad.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 巴西维涅社2-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.baxsae.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 巴西维涅社3-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.baxsaf.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 巴西维涅社4-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2053
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.baxsag.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 智利1-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2053
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.yagesaa.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 智利2-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2083
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.yagesab.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 澳大利亚墨尔本1-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.mebesaa.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 澳大利亚墨尔本2-CDN | 1X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.mebesab.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 瑞典-CDN 100Mbps | 0X
+    type: trojan
+    server: 1747182556.tencentapp.cn
+    port: 2087
+    password: d691a0f0-148f-498e-af69-ca2b23579a3d
+    tls: true
+    sni: 1747182919.speed.rdsactaa.china.nicchina.pp.ua
+    network: grpc
+    grpc-opts:
+      grpc-service-name: m3u8
+    tfo: false
+    skip-cert-verify: true
+  - name: 剩余流量：41.7 GB
+    type: vmess
+    server: cdn1.bpcdn.cc
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: gz4wah11v4bem6ws.lovebaipiao.com
+  - name: 距离下次重置剩余：27 天
+    type: vmess
+    server: cdn1.bpcdn.cc
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: gz4wah11v4bem6ws.lovebaipiao.com
+  - name: 套餐到期：2038-04-10
+    type: vmess
+    server: cdn1.bpcdn.cc
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: gz4wah11v4bem6ws.lovebaipiao.com
+  - name: 过滤掉2条线路
+    type: vmess
+    server: cdn1.bpcdn.cc
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: gz4wah11v4bem6ws.lovebaipiao.com
+  - name: 🇺🇸请每月更-新一次订阅
+    type: vmess
+    server: cdn1.bpcdn.cc
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: gz4wah11v4bem6ws.lovebaipiao.com
+  - name: 🇯🇵日本1
+    type: vmess
+    server: cdn1.bpcdn.cc
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: jpjhve0r3125kg1xmz.lovebaipiao.com
+  - name: 🇯🇵日本2
+    type: vmess
+    server: cdn2.bpcdn.cc
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: jpjhve0r3125kg1xmz.lovebaipiao.com
+  - name: 🇯🇵日本3
+    type: vmess
+    server: cdn3.bpcdn.cc
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: jpjhve0r3125kg1xmz.lovebaipiao.com
+  - name: Youtube破解广告1
+    type: vmess
+    server: cdn1.bpcdn.cc
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: erfpus962ivsb8pwri.lovebaipiao.com
+  - name: Youtube破解广告2
+    type: vmess
+    server: cloudflare.182682.xyz
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: erfpus962ivsb8pwri.lovebaipiao.com
+  - name: Youtube破解广告3
+    type: vmess
+    server: cdn3.bpcdn.cc
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: erfpus962ivsb8pwri.lovebaipiao.com
+  - name: 🇺🇸美国光速1
+    type: vmess
+    server: 170.114.45.51
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: ustoucjjnid18sj6us.lovebaipiao.com
+  - name: 🇺🇸美国光速2
+    type: vmess
+    server: 170.114.45.52
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: ustoucjjnid18sj6us.lovebaipiao.com
+  - name: 🇺🇸美国光速3
+    type: vmess
+    server: 170.114.45.53
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: ustoucjjnid18sj6us.lovebaipiao.com
+  - name: 🇺🇸美国光速4
+    type: vmess
+    server: csgo.com
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: ustoucjjnid18sj6us.lovebaipiao.com
+  - name: 🇺🇸美国光速5
+    type: vmess
+    server: digitalocean.com
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: ustoucjjnid18sj6us.lovebaipiao.com
+  - name: 🇺🇸美国光速6
+    type: vmess
+    server: cloudflare.182682.xyz
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: ustoucjjnid18sj6us.lovebaipiao.com
+  - name: 🇺🇸美国光速7
+    type: vmess
+    server: 141.193.213.167
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: ustoucjjnid18sj6us.lovebaipiao.com
+  - name: 🇺🇸美国光速8
+    type: vmess
+    server: 141.193.213.168
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: ustoucjjnid18sj6us.lovebaipiao.com
+  - name: 🇺🇸美国光速9
+    type: vmess
+    server: 141.193.213.169
+    port: 2086
+    uuid: 3107e3b4-655b-4121-b382-a894912f3691
+    alterId: 0
+    cipher: auto
+    tls: false
+    servername: &#39;&#39;
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: ustoucjjnid18sj6us.lovebaipiao.com
+  - name: （看这里）每月刷新订阅获取新节点
+    type: trojan
+    server: 0.0.0.0
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: 0.0.0.0
+    network: ws
+    ws-opts: {}
+    tfo: false
+    skip-cert-verify: true
+  - name: 一元机场.ink
+    type: trojan
+    server: 0.0.0.0
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: 0.0.0.0
+    network: ws
+    ws-opts: {}
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇭🇰香港 01 | 专线
+    type: trojan
+    server: hk1.aa53e79d-4e08-798a-661a-d88de371913f.6df03129.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇭🇰香港 02 | 专线
+    type: trojan
+    server: hk2.aa53e79d-4e08-798a-661a-d88de371913f.24ba0f77.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇭🇰香港 03 | 专线
+    type: trojan
+    server: hk3.aa53e79d-4e08-798a-661a-d88de371913f.0d1f6a51.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇭🇰香港 04 | 专线
+    type: trojan
+    server: hk4.aa53e79d-4e08-798a-661a-d88de371913f.66dc3db5.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇯🇵日本 01 | 专线
+    type: trojan
+    server: jp1.aa53e79d-4e08-798a-661a-d88de371913f.7adf211e.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇯🇵日本 02 | 专线
+    type: trojan
+    server: jp2.aa53e79d-4e08-798a-661a-d88de371913f.02444020.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇯🇵日本 03 | 专线
+    type: trojan
+    server: jp3.aa53e79d-4e08-798a-661a-d88de371913f.5584fc1f.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇯🇵日本 04 | 专线
+    type: trojan
+    server: jp4.aa53e79d-4e08-798a-661a-d88de371913f.69408ae5.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇯🇵日本 05 | 25倍计费！
+    type: trojan
+    server: jp5.aa53e79d-4e08-798a-661a-d88de371913f.cfe6fe33.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇯🇵日本 06 | 25倍计费！
+    type: trojan
+    server: jp6.aa53e79d-4e08-798a-661a-d88de371913f.3958a655.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇯🇵日本 07 | 25倍计费！
+    type: trojan
+    server: jp7.aa53e79d-4e08-798a-661a-d88de371913f.722ab11a.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇯🇵日本 08 | 25倍计费！
+    type: trojan
+    server: jp8.aa53e79d-4e08-798a-661a-d88de371913f.7e2a9604.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇸🇬新加坡 01 | 专线
+    type: trojan
+    server: sg1.aa53e79d-4e08-798a-661a-d88de371913f.2dde7df3.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇸🇬新加坡 02 | 专线
+    type: trojan
+    server: sg2.aa53e79d-4e08-798a-661a-d88de371913f.2c4b5066.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇸🇬新加坡 03 | 专线
+    type: trojan
+    server: sg3.aa53e79d-4e08-798a-661a-d88de371913f.d4f84ebb.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇸🇬新加坡 04 | 专线
+    type: trojan
+    server: sg4.aa53e79d-4e08-798a-661a-d88de371913f.2ce203e5.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇸🇬新加坡 05 | 专线
+    type: trojan
+    server: sg5.aa53e79d-4e08-798a-661a-d88de371913f.dede0d54.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇸🇬新加坡 06 | 专线
+    type: trojan
+    server: sg6.aa53e79d-4e08-798a-661a-d88de371913f.0aca10d1.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇸🇬新加坡 07 | 专线
+    type: trojan
+    server: sg7.aa53e79d-4e08-798a-661a-d88de371913f.57aaa8ec.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇸🇬新加坡 08 | 专线
+    type: trojan
+    server: sg8.aa53e79d-4e08-798a-661a-d88de371913f.c586e7c2.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇺🇸美国 01 | 专线
+    type: trojan
+    server: us1.aa53e79d-4e08-798a-661a-d88de371913f.36a8c922.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇺🇸美国 02 | 专线
+    type: trojan
+    server: us2.aa53e79d-4e08-798a-661a-d88de371913f.2f6cd430.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇺🇸美国 03 | 专线
+    type: trojan
+    server: us3.aa53e79d-4e08-798a-661a-d88de371913f.47253001.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+  - name: 🇺🇸美国 04 | 专线
+    type: trojan
+    server: us4.aa53e79d-4e08-798a-661a-d88de371913f.30d6a0d0.the-best-airport.com
+    port: 443
+    password: 01895713-d441-4a48-979e-7abc3b9a8336
+    tls: true
+    sni: new.download.the-best-airport.com
+    network: tcp
+    tfo: false
+    skip-cert-verify: true
+proxy-groups:
+  - type: select
+    name: 🚀 节点选择
+    proxies:
+      - DIRECT
+      - REJECT
+      - ⚡ 自动选择
+      - 剩余流量：97.2 GB
+      - 距离下次重置剩余：21 天
+      - 套餐到期：2025-06-04
+      - 新加坡3-CDN | 1x
+      - 新加坡4-CDN | 1x
+      - 新加坡5-CDN | 1x
+      - 新加坡6-CDN | 1x
+      - 日本1-CDN | 1x
+      - 日本2-CDN | 1x
+      - 日本3-CDN | 1x
+      - 日本4-CDN | 1x
+      - 印度-海得拉巴1-CDN | 1x
+      - 印度-海得拉巴2-CDN | 1x
+      - 印度-海得拉巴3-CDN | 1x
+      - 印度-海得拉巴4-CDN | 1x
+      - 沙特阿拉伯1-CDN | 1x
+      - 沙特阿拉伯2-CDN | 1x
+      - 美国东部阿什本1-CDN | 1x
+      - 美国东部阿什本2-CDN | 1x
+      - 美国西部圣何塞1-CDN | 1x
+      - 美国西部圣何塞2-CDN | 1x
+      - 美国西部圣何塞3-CDN | 1x
+      - 美国西部圣何塞4-CDN | 1x
+      - 美国西部洛杉矶1-CDN | 0x
+      - 美国西部洛杉矶2-CDN | 0x
+      - 美国东部纽约1-CDN | 0x
+      - 美国中部芝加哥1-CDN | 0x
+      - 美国南部达拉斯1-CDN | 0x
+      - 加拿大1-多伦多-CDN | 1X
+      - 德国1纽伦堡-CDN | 0X
+      - 德国2纽伦堡-CDN | 0X
+      - 土耳其1-无分流直出BAN-PT/BT/POOL-CDN | 0X
+      - 西班牙1-CDN | 1X
+      - 英国伦敦1-CDN | 1X
+      - 英国伦敦2-CDN | 1X
+      - 英国伦敦3-CDN | 1X
+      - 英国伦敦4-CDN | 1X
+      - 英国伦敦5-CDN | 1X
+      - 英国伦敦6-CDN | 1X
+      - 法国-CDN | 1X
+      - 荷兰1-CDN | 1X
+      - 荷兰2-CDN | 1X
+      - 俄罗斯1-CDN | 0X
+      - 巴西圣保罗1-CDN | 1X
+      - 巴西圣保罗2-CDN | 1X
+      - 巴西圣保罗3-CDN | 1X
+      - 巴西维涅社1-CDN | 1X
+      - 巴西维涅社2-CDN | 1X
+      - 巴西维涅社3-CDN | 1X
+      - 巴西维涅社4-CDN | 1X
+      - 智利1-CDN | 1X
+      - 智利2-CDN | 1X
+      - 澳大利亚墨尔本1-CDN | 1X
+      - 澳大利亚墨尔本2-CDN | 1X
+      - 瑞典-CDN 100Mbps | 0X
+      - 剩余流量：41.7 GB
+      - 距离下次重置剩余：27 天
+      - 套餐到期：2038-04-10
+      - 过滤掉2条线路
+      - 🇺🇸请每月更-新一次订阅
+      - 🇯🇵日本1
+      - 🇯🇵日本2
+      - 🇯🇵日本3
+      - Youtube破解广告1
+      - Youtube破解广告2
+      - Youtube破解广告3
+      - 🇺🇸美国光速1
+      - 🇺🇸美国光速2
+      - 🇺🇸美国光速3
+      - 🇺🇸美国光速4
+      - 🇺🇸美国光速5
+      - 🇺🇸美国光速6
+      - 🇺🇸美国光速7
+      - 🇺🇸美国光速8
+      - 🇺🇸美国光速9
+      - （看这里）每月刷新订阅获取新节点
+      - 一元机场.ink
+      - 🇭🇰香港 01 | 专线
+      - 🇭🇰香港 02 | 专线
+      - 🇭🇰香港 03 | 专线
+      - 🇭🇰香港 04 | 专线
+      - 🇯🇵日本 01 | 专线
+      - 🇯🇵日本 02 | 专线
+      - 🇯🇵日本 03 | 专线
+      - 🇯🇵日本 04 | 专线
+      - 🇯🇵日本 05 | 25倍计费！
+      - 🇯🇵日本 06 | 25倍计费！
+      - 🇯🇵日本 07 | 25倍计费！
+      - 🇯🇵日本 08 | 25倍计费！
+      - 🇸🇬新加坡 01 | 专线
+      - 🇸🇬新加坡 02 | 专线
+      - 🇸🇬新加坡 03 | 专线
+      - 🇸🇬新加坡 04 | 专线
+      - 🇸🇬新加坡 05 | 专线
+      - 🇸🇬新加坡 06 | 专线
+      - 🇸🇬新加坡 07 | 专线
+      - 🇸🇬新加坡 08 | 专线
+      - 🇺🇸美国 01 | 专线
+      - 🇺🇸美国 02 | 专线
+      - 🇺🇸美国 03 | 专线
+      - 🇺🇸美国 04 | 专线
+  - name: ⚡ 自动选择
+    type: url-test
+    proxies:
+      - 剩余流量：97.2 GB
+      - 距离下次重置剩余：21 天
+      - 套餐到期：2025-06-04
+      - 新加坡3-CDN | 1x
+      - 新加坡4-CDN | 1x
+      - 新加坡5-CDN | 1x
+      - 新加坡6-CDN | 1x
+      - 日本1-CDN | 1x
+      - 日本2-CDN | 1x
+      - 日本3-CDN | 1x
+      - 日本4-CDN | 1x
+      - 印度-海得拉巴1-CDN | 1x
+      - 印度-海得拉巴2-CDN | 1x
+      - 印度-海得拉巴3-CDN | 1x
+      - 印度-海得拉巴4-CDN | 1x
+      - 沙特阿拉伯1-CDN | 1x
+      - 沙特阿拉伯2-CDN | 1x
+      - 美国东部阿什本1-CDN | 1x
+      - 美国东部阿什本2-CDN | 1x
+      - 美国西部圣何塞1-CDN | 1x
+      - 美国西部圣何塞2-CDN | 1x
+      - 美国西部圣何塞3-CDN | 1x
+      - 美国西部圣何塞4-CDN | 1x
+      - 美国西部洛杉矶1-CDN | 0x
+      - 美国西部洛杉矶2-CDN | 0x
+      - 美国东部纽约1-CDN | 0x
+      - 美国中部芝加哥1-CDN | 0x
+      - 美国南部达拉斯1-CDN | 0x
+      - 加拿大1-多伦多-CDN | 1X
+      - 德国1纽伦堡-CDN | 0X
+      - 德国2纽伦堡-CDN | 0X
+      - 土耳其1-无分流直出BAN-PT/BT/POOL-CDN | 0X
+      - 西班牙1-CDN | 1X
+      - 英国伦敦1-CDN | 1X
+      - 英国伦敦2-CDN | 1X
+      - 英国伦敦3-CDN | 1X
+      - 英国伦敦4-CDN | 1X
+      - 英国伦敦5-CDN | 1X
+      - 英国伦敦6-CDN | 1X
+      - 法国-CDN | 1X
+      - 荷兰1-CDN | 1X
+      - 荷兰2-CDN | 1X
+      - 俄罗斯1-CDN | 0X
+      - 巴西圣保罗1-CDN | 1X
+      - 巴西圣保罗2-CDN | 1X
+      - 巴西圣保罗3-CDN | 1X
+      - 巴西维涅社1-CDN | 1X
+      - 巴西维涅社2-CDN | 1X
+      - 巴西维涅社3-CDN | 1X
+      - 巴西维涅社4-CDN | 1X
+      - 智利1-CDN | 1X
+      - 智利2-CDN | 1X
+      - 澳大利亚墨尔本1-CDN | 1X
+      - 澳大利亚墨尔本2-CDN | 1X
+      - 瑞典-CDN 100Mbps | 0X
+      - 剩余流量：41.7 GB
+      - 距离下次重置剩余：27 天
+      - 套餐到期：2038-04-10
+      - 过滤掉2条线路
+      - 🇺🇸请每月更-新一次订阅
+      - 🇯🇵日本1
+      - 🇯🇵日本2
+      - 🇯🇵日本3
+      - Youtube破解广告1
+      - Youtube破解广告2
+      - Youtube破解广告3
+      - 🇺🇸美国光速1
+      - 🇺🇸美国光速2
+      - 🇺🇸美国光速3
+      - 🇺🇸美国光速4
+      - 🇺🇸美国光速5
+      - 🇺🇸美国光速6
+      - 🇺🇸美国光速7
+      - 🇺🇸美国光速8
+      - 🇺🇸美国光速9
+      - （看这里）每月刷新订阅获取新节点
+      - 一元机场.ink
+      - 🇭🇰香港 01 | 专线
+      - 🇭🇰香港 02 | 专线
+      - 🇭🇰香港 03 | 专线
+      - 🇭🇰香港 04 | 专线
+      - 🇯🇵日本 01 | 专线
+      - 🇯🇵日本 02 | 专线
+      - 🇯🇵日本 03 | 专线
+      - 🇯🇵日本 04 | 专线
+      - 🇯🇵日本 05 | 25倍计费！
+      - 🇯🇵日本 06 | 25倍计费！
+      - 🇯🇵日本 07 | 25倍计费！
+      - 🇯🇵日本 08 | 25倍计费！
+      - 🇸🇬新加坡 01 | 专线
+      - 🇸🇬新加坡 02 | 专线
+      - 🇸🇬新加坡 03 | 专线
+      - 🇸🇬新加坡 04 | 专线
+      - 🇸🇬新加坡 05 | 专线
+      - 🇸🇬新加坡 06 | 专线
+      - 🇸🇬新加坡 07 | 专线
+      - 🇸🇬新加坡 08 | 专线
+      - 🇺🇸美国 01 | 专线
+      - 🇺🇸美国 02 | 专线
+      - 🇺🇸美国 03 | 专线
+      - 🇺🇸美国 04 | 专线
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    lazy: false
+  - type: select
+    name: 🏠 私有网络
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+      - REJECT
+      - ⚡ 自动选择
+      - 剩余流量：97.2 GB
+      - 距离下次重置剩余：21 天
+      - 套餐到期：2025-06-04
+      - 新加坡3-CDN | 1x
+      - 新加坡4-CDN | 1x
+      - 新加坡5-CDN | 1x
+      - 新加坡6-CDN | 1x
+      - 日本1-CDN | 1x
+      - 日本2-CDN | 1x
+      - 日本3-CDN | 1x
+      - 日本4-CDN | 1x
+      - 印度-海得拉巴1-CDN | 1x
+      - 印度-海得拉巴2-CDN | 1x
+      - 印度-海得拉巴3-CDN | 1x
+      - 印度-海得拉巴4-CDN | 1x
+      - 沙特阿拉伯1-CDN | 1x
+      - 沙特阿拉伯2-CDN | 1x
+      - 美国东部阿什本1-CDN | 1x
+      - 美国东部阿什本2-CDN | 1x
+      - 美国西部圣何塞1-CDN | 1x
+      - 美国西部圣何塞2-CDN | 1x
+      - 美国西部圣何塞3-CDN | 1x
+      - 美国西部圣何塞4-CDN | 1x
+      - 美国西部洛杉矶1-CDN | 0x
+      - 美国西部洛杉矶2-CDN | 0x
+      - 美国东部纽约1-CDN | 0x
+      - 美国中部芝加哥1-CDN | 0x
+      - 美国南部达拉斯1-CDN | 0x
+      - 加拿大1-多伦多-CDN | 1X
+      - 德国1纽伦堡-CDN | 0X
+      - 德国2纽伦堡-CDN | 0X
+      - 土耳其1-无分流直出BAN-PT/BT/POOL-CDN | 0X
+      - 西班牙1-CDN | 1X
+      - 英国伦敦1-CDN | 1X
+      - 英国伦敦2-CDN | 1X
+      - 英国伦敦3-CDN | 1X
+      - 英国伦敦4-CDN | 1X
+      - 英国伦敦5-CDN | 1X
+      - 英国伦敦6-CDN | 1X
+      - 法国-CDN | 1X
+      - 荷兰1-CDN | 1X
+      - 荷兰2-CDN | 1X
+      - 俄罗斯1-CDN | 0X
+      - 巴西圣保罗1-CDN | 1X
+      - 巴西圣保罗2-CDN | 1X
+      - 巴西圣保罗3-CDN | 1X
+      - 巴西维涅社1-CDN | 1X
+      - 巴西维涅社2-CDN | 1X
+      - 巴西维涅社3-CDN | 1X
+      - 巴西维涅社4-CDN | 1X
+      - 智利1-CDN | 1X
+      - 智利2-CDN | 1X
+      - 澳大利亚墨尔本1-CDN | 1X
+      - 澳大利亚墨尔本2-CDN | 1X
+      - 瑞典-CDN 100Mbps | 0X
+      - 剩余流量：41.7 GB
+      - 距离下次重置剩余：27 天
+      - 套餐到期：2038-04-10
+      - 过滤掉2条线路
+      - 🇺🇸请每月更-新一次订阅
+      - 🇯🇵日本1
+      - 🇯🇵日本2
+      - 🇯🇵日本3
+      - Youtube破解广告1
+      - Youtube破解广告2
+      - Youtube破解广告3
+      - 🇺🇸美国光速1
+      - 🇺🇸美国光速2
+      - 🇺🇸美国光速3
+      - 🇺🇸美国光速4
+      - 🇺🇸美国光速5
+      - 🇺🇸美国光速6
+      - 🇺🇸美国光速7
+      - 🇺🇸美国光速8
+      - 🇺🇸美国光速9
+      - （看这里）每月刷新订阅获取新节点
+      - 一元机场.ink
+      - 🇭🇰香港 01 | 专线
+      - 🇭🇰香港 02 | 专线
+      - 🇭🇰香港 03 | 专线
+      - 🇭🇰香港 04 | 专线
+      - 🇯🇵日本 01 | 专线
+      - 🇯🇵日本 02 | 专线
+      - 🇯🇵日本 03 | 专线
+      - 🇯🇵日本 04 | 专线
+      - 🇯🇵日本 05 | 25倍计费！
+      - 🇯🇵日本 06 | 25倍计费！
+      - 🇯🇵日本 07 | 25倍计费！
+      - 🇯🇵日本 08 | 25倍计费！
+      - 🇸🇬新加坡 01 | 专线
+      - 🇸🇬新加坡 02 | 专线
+      - 🇸🇬新加坡 03 | 专线
+      - 🇸🇬新加坡 04 | 专线
+      - 🇸🇬新加坡 05 | 专线
+      - 🇸🇬新加坡 06 | 专线
+      - 🇸🇬新加坡 07 | 专线
+      - 🇸🇬新加坡 08 | 专线
+      - 🇺🇸美国 01 | 专线
+      - 🇺🇸美国 02 | 专线
+      - 🇺🇸美国 03 | 专线
+      - 🇺🇸美国 04 | 专线
+  - type: select
+    name: 🔒 国内服务
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+      - REJECT
+      - ⚡ 自动选择
+      - 剩余流量：97.2 GB
+      - 距离下次重置剩余：21 天
+      - 套餐到期：2025-06-04
+      - 新加坡3-CDN | 1x
+      - 新加坡4-CDN | 1x
+      - 新加坡5-CDN | 1x
+      - 新加坡6-CDN | 1x
+      - 日本1-CDN | 1x
+      - 日本2-CDN | 1x
+      - 日本3-CDN | 1x
+      - 日本4-CDN | 1x
+      - 印度-海得拉巴1-CDN | 1x
+      - 印度-海得拉巴2-CDN | 1x
+      - 印度-海得拉巴3-CDN | 1x
+      - 印度-海得拉巴4-CDN | 1x
+      - 沙特阿拉伯1-CDN | 1x
+      - 沙特阿拉伯2-CDN | 1x
+      - 美国东部阿什本1-CDN | 1x
+      - 美国东部阿什本2-CDN | 1x
+      - 美国西部圣何塞1-CDN | 1x
+      - 美国西部圣何塞2-CDN | 1x
+      - 美国西部圣何塞3-CDN | 1x
+      - 美国西部圣何塞4-CDN | 1x
+      - 美国西部洛杉矶1-CDN | 0x
+      - 美国西部洛杉矶2-CDN | 0x
+      - 美国东部纽约1-CDN | 0x
+      - 美国中部芝加哥1-CDN | 0x
+      - 美国南部达拉斯1-CDN | 0x
+      - 加拿大1-多伦多-CDN | 1X
+      - 德国1纽伦堡-CDN | 0X
+      - 德国2纽伦堡-CDN | 0X
+      - 土耳其1-无分流直出BAN-PT/BT/POOL-CDN | 0X
+      - 西班牙1-CDN | 1X
+      - 英国伦敦1-CDN | 1X
+      - 英国伦敦2-CDN | 1X
+      - 英国伦敦3-CDN | 1X
+      - 英国伦敦4-CDN | 1X
+      - 英国伦敦5-CDN | 1X
+      - 英国伦敦6-CDN | 1X
+      - 法国-CDN | 1X
+      - 荷兰1-CDN | 1X
+      - 荷兰2-CDN | 1X
+      - 俄罗斯1-CDN | 0X
+      - 巴西圣保罗1-CDN | 1X
+      - 巴西圣保罗2-CDN | 1X
+      - 巴西圣保罗3-CDN | 1X
+      - 巴西维涅社1-CDN | 1X
+      - 巴西维涅社2-CDN | 1X
+      - 巴西维涅社3-CDN | 1X
+      - 巴西维涅社4-CDN | 1X
+      - 智利1-CDN | 1X
+      - 智利2-CDN | 1X
+      - 澳大利亚墨尔本1-CDN | 1X
+      - 澳大利亚墨尔本2-CDN | 1X
+      - 瑞典-CDN 100Mbps | 0X
+      - 剩余流量：41.7 GB
+      - 距离下次重置剩余：27 天
+      - 套餐到期：2038-04-10
+      - 过滤掉2条线路
+      - 🇺🇸请每月更-新一次订阅
+      - 🇯🇵日本1
+      - 🇯🇵日本2
+      - 🇯🇵日本3
+      - Youtube破解广告1
+      - Youtube破解广告2
+      - Youtube破解广告3
+      - 🇺🇸美国光速1
+      - 🇺🇸美国光速2
+      - 🇺🇸美国光速3
+      - 🇺🇸美国光速4
+      - 🇺🇸美国光速5
+      - 🇺🇸美国光速6
+      - 🇺🇸美国光速7
+      - 🇺🇸美国光速8
+      - 🇺🇸美国光速9
+      - （看这里）每月刷新订阅获取新节点
+      - 一元机场.ink
+      - 🇭🇰香港 01 | 专线
+      - 🇭🇰香港 02 | 专线
+      - 🇭🇰香港 03 | 专线
+      - 🇭🇰香港 04 | 专线
+      - 🇯🇵日本 01 | 专线
+      - 🇯🇵日本 02 | 专线
+      - 🇯🇵日本 03 | 专线
+      - 🇯🇵日本 04 | 专线
+      - 🇯🇵日本 05 | 25倍计费！
+      - 🇯🇵日本 06 | 25倍计费！
+      - 🇯🇵日本 07 | 25倍计费！
+      - 🇯🇵日本 08 | 25倍计费！
+      - 🇸🇬新加坡 01 | 专线
+      - 🇸🇬新加坡 02 | 专线
+      - 🇸🇬新加坡 03 | 专线
+      - 🇸🇬新加坡 04 | 专线
+      - 🇸🇬新加坡 05 | 专线
+      - 🇸🇬新加坡 06 | 专线
+      - 🇸🇬新加坡 07 | 专线
+      - 🇸🇬新加坡 08 | 专线
+      - 🇺🇸美国 01 | 专线
+      - 🇺🇸美国 02 | 专线
+      - 🇺🇸美国 03 | 专线
+      - 🇺🇸美国 04 | 专线
+  - type: select
+    name: 🌐 非中国
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+      - REJECT
+      - ⚡ 自动选择
+      - 剩余流量：97.2 GB
+      - 距离下次重置剩余：21 天
+      - 套餐到期：2025-06-04
+      - 新加坡3-CDN | 1x
+      - 新加坡4-CDN | 1x
+      - 新加坡5-CDN | 1x
+      - 新加坡6-CDN | 1x
+      - 日本1-CDN | 1x
+      - 日本2-CDN | 1x
+      - 日本3-CDN | 1x
+      - 日本4-CDN | 1x
+      - 印度-海得拉巴1-CDN | 1x
+      - 印度-海得拉巴2-CDN | 1x
+      - 印度-海得拉巴3-CDN | 1x
+      - 印度-海得拉巴4-CDN | 1x
+      - 沙特阿拉伯1-CDN | 1x
+      - 沙特阿拉伯2-CDN | 1x
+      - 美国东部阿什本1-CDN | 1x
+      - 美国东部阿什本2-CDN | 1x
+      - 美国西部圣何塞1-CDN | 1x
+      - 美国西部圣何塞2-CDN | 1x
+      - 美国西部圣何塞3-CDN | 1x
+      - 美国西部圣何塞4-CDN | 1x
+      - 美国西部洛杉矶1-CDN | 0x
+      - 美国西部洛杉矶2-CDN | 0x
+      - 美国东部纽约1-CDN | 0x
+      - 美国中部芝加哥1-CDN | 0x
+      - 美国南部达拉斯1-CDN | 0x
+      - 加拿大1-多伦多-CDN | 1X
+      - 德国1纽伦堡-CDN | 0X
+      - 德国2纽伦堡-CDN | 0X
+      - 土耳其1-无分流直出BAN-PT/BT/POOL-CDN | 0X
+      - 西班牙1-CDN | 1X
+      - 英国伦敦1-CDN | 1X
+      - 英国伦敦2-CDN | 1X
+      - 英国伦敦3-CDN | 1X
+      - 英国伦敦4-CDN | 1X
+      - 英国伦敦5-CDN | 1X
+      - 英国伦敦6-CDN | 1X
+      - 法国-CDN | 1X
+      - 荷兰1-CDN | 1X
+      - 荷兰2-CDN | 1X
+      - 俄罗斯1-CDN | 0X
+      - 巴西圣保罗1-CDN | 1X
+      - 巴西圣保罗2-CDN | 1X
+      - 巴西圣保罗3-CDN | 1X
+      - 巴西维涅社1-CDN | 1X
+      - 巴西维涅社2-CDN | 1X
+      - 巴西维涅社3-CDN | 1X
+      - 巴西维涅社4-CDN | 1X
+      - 智利1-CDN | 1X
+      - 智利2-CDN | 1X
+      - 澳大利亚墨尔本1-CDN | 1X
+      - 澳大利亚墨尔本2-CDN | 1X
+      - 瑞典-CDN 100Mbps | 0X
+      - 剩余流量：41.7 GB
+      - 距离下次重置剩余：27 天
+      - 套餐到期：2038-04-10
+      - 过滤掉2条线路
+      - 🇺🇸请每月更-新一次订阅
+      - 🇯🇵日本1
+      - 🇯🇵日本2
+      - 🇯🇵日本3
+      - Youtube破解广告1
+      - Youtube破解广告2
+      - Youtube破解广告3
+      - 🇺🇸美国光速1
+      - 🇺🇸美国光速2
+      - 🇺🇸美国光速3
+      - 🇺🇸美国光速4
+      - 🇺🇸美国光速5
+      - 🇺🇸美国光速6
+      - 🇺🇸美国光速7
+      - 🇺🇸美国光速8
+      - 🇺🇸美国光速9
+      - （看这里）每月刷新订阅获取新节点
+      - 一元机场.ink
+      - 🇭🇰香港 01 | 专线
+      - 🇭🇰香港 02 | 专线
+      - 🇭🇰香港 03 | 专线
+      - 🇭🇰香港 04 | 专线
+      - 🇯🇵日本 01 | 专线
+      - 🇯🇵日本 02 | 专线
+      - 🇯🇵日本 03 | 专线
+      - 🇯🇵日本 04 | 专线
+      - 🇯🇵日本 05 | 25倍计费！
+      - 🇯🇵日本 06 | 25倍计费！
+      - 🇯🇵日本 07 | 25倍计费！
+      - 🇯🇵日本 08 | 25倍计费！
+      - 🇸🇬新加坡 01 | 专线
+      - 🇸🇬新加坡 02 | 专线
+      - 🇸🇬新加坡 03 | 专线
+      - 🇸🇬新加坡 04 | 专线
+      - 🇸🇬新加坡 05 | 专线
+      - 🇸🇬新加坡 06 | 专线
+      - 🇸🇬新加坡 07 | 专线
+      - 🇸🇬新加坡 08 | 专线
+      - 🇺🇸美国 01 | 专线
+      - 🇺🇸美国 02 | 专线
+      - 🇺🇸美国 03 | 专线
+      - 🇺🇸美国 04 | 专线
+  - type: select
+    name: 🐟 漏网之鱼
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+      - REJECT
+      - ⚡ 自动选择
+      - 剩余流量：97.2 GB
+      - 距离下次重置剩余：21 天
+      - 套餐到期：2025-06-04
+      - 新加坡3-CDN | 1x
+      - 新加坡4-CDN | 1x
+      - 新加坡5-CDN | 1x
+      - 新加坡6-CDN | 1x
+      - 日本1-CDN | 1x
+      - 日本2-CDN | 1x
+      - 日本3-CDN | 1x
+      - 日本4-CDN | 1x
+      - 印度-海得拉巴1-CDN | 1x
+      - 印度-海得拉巴2-CDN | 1x
+      - 印度-海得拉巴3-CDN | 1x
+      - 印度-海得拉巴4-CDN | 1x
+      - 沙特阿拉伯1-CDN | 1x
+      - 沙特阿拉伯2-CDN | 1x
+      - 美国东部阿什本1-CDN | 1x
+      - 美国东部阿什本2-CDN | 1x
+      - 美国西部圣何塞1-CDN | 1x
+      - 美国西部圣何塞2-CDN | 1x
+      - 美国西部圣何塞3-CDN | 1x
+      - 美国西部圣何塞4-CDN | 1x
+      - 美国西部洛杉矶1-CDN | 0x
+      - 美国西部洛杉矶2-CDN | 0x
+      - 美国东部纽约1-CDN | 0x
+      - 美国中部芝加哥1-CDN | 0x
+      - 美国南部达拉斯1-CDN | 0x
+      - 加拿大1-多伦多-CDN | 1X
+      - 德国1纽伦堡-CDN | 0X
+      - 德国2纽伦堡-CDN | 0X
+      - 土耳其1-无分流直出BAN-PT/BT/POOL-CDN | 0X
+      - 西班牙1-CDN | 1X
+      - 英国伦敦1-CDN | 1X
+      - 英国伦敦2-CDN | 1X
+      - 英国伦敦3-CDN | 1X
+      - 英国伦敦4-CDN | 1X
+      - 英国伦敦5-CDN | 1X
+      - 英国伦敦6-CDN | 1X
+      - 法国-CDN | 1X
+      - 荷兰1-CDN | 1X
+      - 荷兰2-CDN | 1X
+      - 俄罗斯1-CDN | 0X
+      - 巴西圣保罗1-CDN | 1X
+      - 巴西圣保罗2-CDN | 1X
+      - 巴西圣保罗3-CDN | 1X
+      - 巴西维涅社1-CDN | 1X
+      - 巴西维涅社2-CDN | 1X
+      - 巴西维涅社3-CDN | 1X
+      - 巴西维涅社4-CDN | 1X
+      - 智利1-CDN | 1X
+      - 智利2-CDN | 1X
+      - 澳大利亚墨尔本1-CDN | 1X
+      - 澳大利亚墨尔本2-CDN | 1X
+      - 瑞典-CDN 100Mbps | 0X
+      - 剩余流量：41.7 GB
+      - 距离下次重置剩余：27 天
+      - 套餐到期：2038-04-10
+      - 过滤掉2条线路
+      - 🇺🇸请每月更-新一次订阅
+      - 🇯🇵日本1
+      - 🇯🇵日本2
+      - 🇯🇵日本3
+      - Youtube破解广告1
+      - Youtube破解广告2
+      - Youtube破解广告3
+      - 🇺🇸美国光速1
+      - 🇺🇸美国光速2
+      - 🇺🇸美国光速3
+      - 🇺🇸美国光速4
+      - 🇺🇸美国光速5
+      - 🇺🇸美国光速6
+      - 🇺🇸美国光速7
+      - 🇺🇸美国光速8
+      - 🇺🇸美国光速9
+      - （看这里）每月刷新订阅获取新节点
+      - 一元机场.ink
+      - 🇭🇰香港 01 | 专线
+      - 🇭🇰香港 02 | 专线
+      - 🇭🇰香港 03 | 专线
+      - 🇭🇰香港 04 | 专线
+      - 🇯🇵日本 01 | 专线
+      - 🇯🇵日本 02 | 专线
+      - 🇯🇵日本 03 | 专线
+      - 🇯🇵日本 04 | 专线
+      - 🇯🇵日本 05 | 25倍计费！
+      - 🇯🇵日本 06 | 25倍计费！
+      - 🇯🇵日本 07 | 25倍计费！
+      - 🇯🇵日本 08 | 25倍计费！
+      - 🇸🇬新加坡 01 | 专线
+      - 🇸🇬新加坡 02 | 专线
+      - 🇸🇬新加坡 03 | 专线
+      - 🇸🇬新加坡 04 | 专线
+      - 🇸🇬新加坡 05 | 专线
+      - 🇸🇬新加坡 06 | 专线
+      - 🇸🇬新加坡 07 | 专线
+      - 🇸🇬新加坡 08 | 专线
+      - 🇺🇸美国 01 | 专线
+      - 🇺🇸美国 02 | 专线
+      - 🇺🇸美国 03 | 专线
+      - 🇺🇸美国 04 | 专线
+rules:
+  - RULE-SET,geolocation-cn,🔒 国内服务
+  - RULE-SET,geolocation-!cn,🌐 非中国
+  - RULE-SET,private,🏠 私有网络,no-resolve
+  - RULE-SET,cn,🔒 国内服务,no-resolve
+  - MATCH,🐟 漏网之鱼
